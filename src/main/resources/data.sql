@@ -1,4 +1,3 @@
-INSERT INTO courses (courses.id,courses.created_at,name,description)
 VALUES (uuid(), now(), "On Boarding",
         "Treinamento de On Boarding Segurança da Informação e Privacaidade de Dados - ISO 27001:2022"),
         (uuid(), now(), "Reciclagem Segurança e Privacidade de Dados - ISO 27001:2022",
