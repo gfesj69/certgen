@@ -9,7 +9,7 @@
 <div class="container mt-5">
     <h2 class="mb-4">Adicionar Novo Curso</h2>
 
-    <form action="#" th:action="@{/courses-view/add}" th:object="${course}" method="post">
+    <form action="#" th:action="@{/courses/add}" th:object="${course}" method="post">
         <div class="mb-3">
             <label for="name" class="form-label">Nome do Curso</label>
             <input type="text" class="form-control" id="name" th:field="*{name}" required>

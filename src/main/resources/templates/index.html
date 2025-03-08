@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Lista de Cursos</title>
@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container mt-5">
-    <h2 class="mb-4">Lista de Cursos /</h2>
+    <h2 class="mb-4">Lista de Cursos - Página Principal</h2>
 
     <table class="table table-striped">
         <thead>
@@ -25,8 +25,8 @@
         </tr>
         </tbody>
     </table>
+    <a th:href="@{/courses/add}">Adicionar Curso</a>
 
-    <a href="add-course.html" class="btn btn-primary">Adicionar Curso</a>
 </div>
 </body>
 </html>

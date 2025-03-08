@@ -2,19 +2,28 @@ package br.com.axys.certgen.controller;
 
 import br.com.axys.certgen.model.Course;
 import br.com.axys.certgen.repository.CourseRepository;
+import jakarta.annotation.PostConstruct;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
+@Slf4j
 @Controller
-@RequestMapping("/courses-view")
+@RequestMapping("/courses")
 public class CourseViewController {
     private final CourseRepository repository;
 
     public CourseViewController(CourseRepository repository) {
         this.repository = repository;
+    }
+
+    @PostConstruct
+    public void init() {
+        log.info("CourseViewController carregado com sucesso!");
     }
 
     @GetMapping
@@ -28,13 +37,20 @@ public class CourseViewController {
     @GetMapping("/add")
     public String showAddCourseForm(Model model) {
         model.addAttribute("course", new Course());
-        return "courses/add"; // templates/courses/add.html
+        return "add-course";
+    }
+
+    @GetMapping("/test")
+    @ResponseBody
+    public String testTemplate() {
+        int x = 1;
+        return "O controlador está funcionando!";
     }
 
     // Processa o formulário e salva o curso no banco
     @PostMapping("/add")
     public String addCourse(@ModelAttribute Course course) {
         repository.save(course);
-        return "redirect:/courses-view"; // Redireciona para a listagem após salvar
+        return "redirect:/courses"; // Redireciona para a listagem após salvar
     }
 }

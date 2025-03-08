@@ -25,4 +25,8 @@ public class Course {
     @Column
     private String updatedAt;
 
+    // Construtor padrão (necessário para JPA)
+    public Course() {
+        this.id = UUID.randomUUID().toString(); // Gera um UUID automaticamente
+    }
 }
